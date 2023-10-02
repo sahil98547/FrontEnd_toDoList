@@ -33,7 +33,7 @@ export default NewPost;
 export async function action({request}){
   const formData = await request.formData();
   const postData = Object.fromEntries(formData);  //{body:'....', author:'....' }
-  await fetch('http://localhost:8080/posts',{
+  await fetch(import.meta.env.VITE_BACKEND_URL + '/posts/',{
     method:'POST',
     body:JSON.stringify(postData),
     headers:{
